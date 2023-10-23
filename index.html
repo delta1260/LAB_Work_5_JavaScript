@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="utf-8">
+    <title>INDEX</title>
+    <style>
+        .wrapper{
+            width:70%;
+            background-color: rgb(146, 201, 226);
+            margin: auto;
+        }
+
+        section{
+            width:65%;
+            background-color: rgb(175, 175, 175);
+            border: 2px solid rgb(0,0,0);
+            margin: 20px auto;
+        }
+
+        .wrapper,section{
+            padding: 5px;
+            box-sizing: border-box;
+            border: 2px solid rgb(0,0,0);
+        }
+
+        .go{
+            text-align: center;
+        }
+
+
+
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <h1 id="top">Basic Geometry</h1>
+        <p>In this section, we are going to find the Area of some two-dimension shapes</p>
+        <p>You can click on any shape below:</p>
+        <ul>
+            <li><a href="#circle">Circle</a></li>
+            <li><a href="#triangle">Triangle</a></li>
+            <li><a href="#square">Square</a></li>
+            <li><a href="#rectangle">Rectangle</a></li>
+        </ul>
+
+        <section id="circle">
+            <h2>Circle Area</h2>
+            <div>
+                <label for="radius">Enter the value of the circle's radius:</label>
+                <input type="text" id="radius">
+            </div>
+            <div>
+                <label for="circle_area">Result:</label>
+                <input type="text" id="circle-area" readonly>
+            </div>
+            <hr>
+            <button onclick="getCircleArea()">Calculate</button>
+        </section>
+        <div class="go">
+            <a href="#top">Go to top</a>
+        </div>
+
+        <section id="triangle">
+            <h2>Triangle Area</h2>
+            <div>
+                <label for="base">Enter the value of the triangle's base:</label>
+                <input type="text" id="base"><br>
+                <label for="height">Enter the value of the triangle's vertical height:</label>
+                <input type="text" id="height">
+            </div>
+            <div>
+                <label for="triangle_area">Result:</label>
+                <input type="text" id="triangle-area" readonly>
+            </div>
+            <hr>
+            <button onclick="getTriangleArea()">Calculate</button>
+        </section>
+        <div class="go">
+            <a href="#top">Go to top</a>
+        </div>
+
+        <section id="square">
+            <h2>Square Area</h2>
+            <div>
+                <label for="side">Enter the value of the square's lenght:</label>
+                <input type="text" id="side">
+            </div>
+            <div>
+                <label for="square_area">Result:</label>
+                <input type="text" id="square-area" readonly>
+            </div>
+            <hr>
+            <button onclick="getSquareArea()">Calculate</button>
+        </section>
+        <div class="go">
+            <a href="#top">Go to top</a>
+        </div>
+
+        <section id="rectangle">
+            <h2>Rectangle Area</h2>
+            <div>
+                <label for="lenght">Enter the value of the rectangle's lenght:</label>
+                <input type="text" id="lenght"><br>
+                <label for="width">Enter the value of the rectangle's width:</label>
+                <input type="text" id="width">
+            </div>
+            <div>
+                <label for="rectangle_area">Result:</label>
+                <input type="text" id="rectangle-area" readonly>
+            </div>
+            <hr>
+            <button onclick="getRectangleArea()">Calculate</button>
+        </section>
+        <div class="go">
+            <a href="#top">Go to top</a>
+        </div>
+   
+    </div>
+   
+    <script>
+
+        function getCircleArea(){
+            let radius = document.getElementById("radius").value;
+            let circle_area = document.getElementById("circle-area");
+            if(isNaN(radius)){
+                let alert = "enter a valid number!";
+                circle_area.value = alert;
+            }
+            else{
+                let radius_num= parseInt(radius); 
+                let area = Math.PI*Math.pow(radius_num,2);
+                circle_area.value = area.toFixed(2);
+            }
+        }
+
+        function getRectangleArea(){
+            let lenght = document.getElementById("lenght").value;
+            let width = document.getElementById("width").value;
+            let rectangle_area = document.getElementById("rectangle-area");
+            if(isNaN(lenght) || isNaN(width)){
+                let alert = "enter a valid number!";
+                rectangle_area.value = alert;
+            }
+            else{
+                let lenght_num= parseInt(lenght); 
+                let width_num= parseInt(width); 
+                let area = width_num*lenght_num ;
+                rectangle_area.value = area.toFixed(2);
+            }
+        }
+
+        function getTriangleArea(){
+            let base = document.getElementById("base").value;
+            let height = document.getElementById("height").value;
+            let triangle_area = document.getElementById("triangle-area");
+            if(isNaN(base) || isNaN(height)){
+                let alert = "enter a valid number!";
+                triangle_area.value = alert;
+            }
+            else{
+                let base_num= parseInt(base); 
+                let height_num= parseInt(height); 
+                let area = 0.5*base_num*height_num;
+                triangle_area.value = area.toFixed(2);
+            }
+        }
+
+        function getSquareArea(){
+            let side = document.getElementById("side").value;
+            let square_area = document.getElementById("square-area");
+            if(isNaN(side)){
+                let alert = "enter a valid number!";
+                square_area.value = alert;
+            }
+            else{
+                let side_num= parseInt(side); 
+                let area = Math.pow(side,2);
+                square_area.value = area.toFixed(2);
+            }
+        }
+
+
+
+    </script>
+ 
+</body>
+
+</html>
